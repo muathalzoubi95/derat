@@ -14,6 +14,19 @@ export const metadata: Metadata = {
   description: "أول تطبيق أردني متخصص للخدمات المنزلية، حجز القاعات، والمطربين في عمان والأردن",
   keywords: "خدمات أردنية, سباك عمان, كهربائي عمان, قاعات أفراح الأردن, مطربين أردنيين",
   generator: "v0.app",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+    viewportFit: "cover",
+  },
+  themeColor: "#ffffff",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "خدماتكو",
+  },
 }
 
 export default function RootLayout({
@@ -23,8 +36,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl">
+      <head>
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+      </head>
       <body className={`${tajawal.className} font-sans antialiased`}>
-        <div className="pb-16 md:pb-0">{children}</div>
+        <div className="pb-16 md:pb-0 min-h-screen">{children}</div>
         <BottomNav />
       </body>
     </html>
