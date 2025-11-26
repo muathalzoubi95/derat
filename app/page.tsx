@@ -10,7 +10,6 @@ import { Navbar } from "@/components/navbar"
 
 export default async function HomePage() {
   const supabase = await createClient()
-
   const { data: categories } = await supabase.from("service_categories").select("*").limit(8)
 
   const { data: halls } = await supabase
